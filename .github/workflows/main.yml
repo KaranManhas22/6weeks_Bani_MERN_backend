@@ -20,6 +20,8 @@ jobs:
           username: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
 
-          script: 
-               cd /var/www/html
-               git pull origin main
+          script: |
+              cd /home/azureuser/6weeks_Bani_MERN_backend
+              git pull
+                npm install
+                 pm2 restart backend
