@@ -1,0 +1,25 @@
+name: seedly-frontend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: git library
+        uses: actions/checkout@v4
+      - name: connection
+        uses: appleboy/ssh-action@v1.2.0
+
+        with:
+          host: ${{secrets.IP}}
+          username: ${{secrets.USERNAME}}
+          password: ${{secrets.PASSWORD}}
+
+          script: 
+               cd /var/www/html
+               git pull origin main
