@@ -22,6 +22,6 @@ jobs:
 
           script: |
               cd /home/azureuser/6weeks_Bani_MERN_backend
-              git pull
-                npm install
-                 pm2 restart backend
+              git pull origin main
+              npm install
+              pm2 restart backend || pm2 start index.js --name "backend"
